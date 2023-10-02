@@ -172,8 +172,8 @@ const renderizarPieza = () => {
                 ctx.fillStyle = COLORES[piezaEnJuego.colorIndex]
                 ctx.fillRect(x, y, 1, 1)
 
-                ctx.strokeStyle = piezaEnJuego.colorIndex
-                ctx.lineWidth = .1
+                ctx.strokeStyle = COLORES[piezaEnJuego.colorIndex - 1]
+                ctx.lineWidth = .05
                 ctx.strokeRect(x, y, 1, 1)
             }
         }
@@ -264,9 +264,9 @@ const renderizarJuego = () => {
             ctx.fillStyle = COLORES[tablero[i][j]];
             ctx.fillRect(j,i,1,1)
 
-            ctx.strokeStyle = "grey"
+            /* ctx.strokeStyle = "grey"
             ctx.lineWidth = .05
-            ctx.strokeRect(j, i, 1, 1)
+            ctx.strokeRect(j, i, 1, 1) */
         }
     }
     renderizarPieza()
