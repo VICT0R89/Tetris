@@ -162,30 +162,19 @@ const actualizar = () => {
 }
 
 const renderizarPieza = () => {
-    /* let pieza = piezaEnJuego.pieza
-    for(let i=0;i<pieza.length;i++){
-        for(let j=0;j<pieza[i].length;j++){
-            if(pieza[i][j] == 1){
-                ctx.fillStyle = COLORES[piezaEnJuego.colorIndex]
-                ctx.fillRect(piezaEnJuego.x+j,piezaEnJuego.y+i,1,1)
-            }
-        }
-    } */
     let pieza = piezaEnJuego.pieza
     for (let i = 0; i < pieza.length; i++) {
         for (let j = 0; j < pieza[i].length; j++) {
             if (pieza[i][j] == 1) {
-                const x = piezaEnJuego.x + j;
-                const y = piezaEnJuego.y + i;
+                const x = piezaEnJuego.x + j
+                const y = piezaEnJuego.y + i
 
-                // Rellenar celda con color
-                ctx.fillStyle = COLORES[piezaEnJuego.colorIndex];
-                ctx.fillRect(x, y, 1, 1);
+                ctx.fillStyle = COLORES[piezaEnJuego.colorIndex]
+                ctx.fillRect(x, y, 1, 1)
 
-                // Dibujar borde interno
-                ctx.strokeStyle = "black";
-                ctx.lineWidth = 1;
-                ctx.strokeRect(x, y, 1, 1);
+                ctx.strokeStyle = piezaEnJuego.colorIndex
+                ctx.lineWidth = .1
+                ctx.strokeRect(x, y, 1, 1)
             }
         }
     }
@@ -274,6 +263,10 @@ const renderizarJuego = () => {
         for(let j=0;j<tablero[i].length;j++){
             ctx.fillStyle = COLORES[tablero[i][j]];
             ctx.fillRect(j,i,1,1)
+
+            ctx.strokeStyle = "grey"
+            ctx.lineWidth = .05
+            ctx.strokeRect(j, i, 1, 1)
         }
     }
     renderizarPieza()
